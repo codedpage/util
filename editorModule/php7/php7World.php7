@@ -1,0 +1,44 @@
+ 
+ 
+// Set the year
+$year = 2024;
+
+// Initialize an array to store month-wise information
+$weeks_per_month = array();
+
+// Loop through each month
+for ($month = 1; $month <= 12; $month++) {
+    // Get the number of days in the month
+    $num_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+    
+    // Get the first day of the month
+    $first_day = strtotime("$year-$month-01");
+    
+    // Get the last day of the month
+    $last_day = strtotime("$year-$month-$num_days");
+    
+    // Get the week number for the first day of the month
+    $first_week_number = date('W', $first_day);
+    
+    // Get the week number for the last day of the month
+    $last_week_number = date('W', $last_day);
+    
+    // Calculate the total number of weeks in the month
+    $total_weeks = $last_week_number - $first_week_number + 1;
+    
+    // Store the information in the array
+    $weeks_per_month[$month] = array(
+        'total_weeks' => $total_weeks,
+        'first_date' => date('Y-m-d', strtotime("{$year}-W{$first_week_number}-1")),
+        'last_date' => date('Y-m-d', strtotime("{$year}-W{$last_week_number}-7")),
+    );
+}
+
+// Output the results
+foreach ($weeks_per_month as $month => $info) {
+    echo "Month: $month\n";
+    echo "Total weeks: {$info['total_weeks']}<br>";
+    echo "First date: {$info['first_date']}<br>";
+    echo "Last date: {$info['last_date']}<br><br>";
+}
+ 

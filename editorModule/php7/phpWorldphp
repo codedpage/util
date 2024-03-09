@@ -1,0 +1,60 @@
+#echo strtotime('2020-04-01 00:00:00').'000<br>';
+
+
+$date = array(1614537000000,
+1612117800000,
+   1614537000000   ,
+ 1604180729340 , 
+ 1614537000000 ,
+1601490600000, 
+1614537000000,
+1617215399000,
+
+
+1618887042318,
+1614536999000,
+
+
+1617129000000,
+
+000,
+1617215399000,
+1614537000000,
+1617129000000,
+000,
+1614537000000,
+1617215399000,
+1617129000000,
+1614537000000
+);
+
+
+foreach ($date as $a) {
+$a = substr($a, 0, -3);
+echo date("Y-m-d H:i:s", $a).'<br>';
+} 
+
+echo strtotime("2021-01-31 23:59:59");
+
+/*
+
+AND (o.finish_time > 1617215399000 OR o.finish_time = 0) 
+AND rp.repay_date >= 1614537000000 AND rp.repay_date <= 1617129000000 
+
+###
+ 
+AND (o.finish_time > 1614536999000 OR o.finish_time = 0) 
+AND rp.repay_date >= 1612117800000 AND rp.repay_date <= 1614450600000 
+
+
+AND (o.finish_time > 1617215399000 OR o.finish_time = 0) 
+AND rp.repay_date >= 1614537000000 AND rp.repay_date <= 1617129000000 
+
+
+
+AND (o.finish_time > 1617215399000 OR o.finish_time = 0) 
+AND rp.repay_date >= 1614537000000 AND rp.repay_date <= 1617129000000 
+
+AND o.finish_time >= 1614537000000 AND o.finish_time <= 1617215399000 
+AND rp.repay_date >= 1614537000000 AND rp.repay_date <= 1617129000000
+*/
